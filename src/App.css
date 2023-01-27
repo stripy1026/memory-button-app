@@ -1,38 +1,39 @@
-.GameButton {
+.game-button {
   padding: 10rem 10rem;
   margin: 1rem 1rem;
   border-radius: 10px;
   transition-duration: 0.5s;
 }
 
-.button-group button {
-  border: 0.1rem solid silver;
-  display: block;
+.game-button-active {
+  padding: 10rem 10rem;
+  margin: 1rem 1rem;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+  transform: scale(0.95);
+  filter: brightness(0);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 21rem 21rem;
+  grid-template-rows: 21rem 21rem;
 }
 
 #one {
-  position: relative;
   background-color: red;
 }
 
 #two {
-  position: absolute;
-  top: 0rem;
-  left: 22rem;
   background-color: blue;
 }
 
 #three {
-  position: absolute;
-  top: 22rem;
-  left: 0rem;
   background-color: greenyellow;
 }
 
 #four {
-  position: absolute;
-  top: 22rem;
-  left: 22rem;
   background-color: violet;
 }
 
@@ -42,16 +43,20 @@
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
-.subbox {
-  position: relative;
-  top: 23rem;
-  left: 20rem;
-}
-
 .start {
   padding: 1rem 1rem;
   font-size: xx-large;
   border-radius: 20%;
-  position: relative;
-  right: 3.5rem;
+  position: absolute;
+  right: 39rem;
+  top: 44rem;
+}
+
+.loading {
+  padding: 1rem 1rem;
+  font-size: xx-large;
+  border-radius: 20%;
+  position: absolute;
+  right: 53rem;
+  top: 2rem;
 }

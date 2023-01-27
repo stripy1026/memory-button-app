@@ -1,13 +1,15 @@
 import "./App.css";
-import { GameBox } from "./components/GameBox";
-import { SubBox } from "./components/SubBox";
 import { RecoilRoot } from "recoil";
+import { LoadingPage } from "common/LoadingPage";
 
 function App() {
+  let answer: number[] = [];
+  while (answer.length < 24) {
+    answer.push(Math.floor(Math.random() * 4));
+  }
   return (
     <RecoilRoot>
-      <GameBox />
-      <SubBox />
+      <LoadingPage arr={answer} />
     </RecoilRoot>
   );
 }
