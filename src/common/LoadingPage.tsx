@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Dispatch } from "react";
 
 type Props = {
   arr: number[];
@@ -11,19 +11,36 @@ export const LoadingPage = (props: Props) => {
     false,
     false,
   ]);
-  const handleClick = (prop: number[]) => {
-    new Promise((resolve) => {
-      setOnActive([
-        true && prop[0] === 0,
-        true && prop[0] === 1,
-        true && prop[0] === 2,
-        true && prop[0] === 3,
-      ]);
+
+  async function handleClicks(
+    prop: number[],
+    set: Dispatch<React.SetStateAction<Boolean[]>>
+  ) {
+    for (let i = 0; i < prop.length; ++i) {
+      console.log(`loop : ${i}, ${prop}`);
+      await handleClick(prop, i, set);
+    }
+  }
+
+  const handleClick = (
+    prop: number[],
+    key: number,
+    set: Dispatch<React.SetStateAction<Boolean[]>>
+  ) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        set([
+          true && prop[key] === 0,
+          true && prop[key] === 1,
+          true && prop[key] === 2,
+          true && prop[key] === 3,
+        ]);
+      }, 500);
       setTimeout(() => {
         resolve(setOnActive([false, false, false, false]));
-      }, 500);
+      }, 1000);
     });
-  };
+  }; // make promise function and then useNavigate
   return (
     <>
       <div className="button-group">
@@ -56,7 +73,7 @@ export const LoadingPage = (props: Props) => {
         <button
           className="start"
           onClick={(e) => {
-            handleClick(props.arr);
+            handleClicks(props.arr, setOnActive);
           }}
         >
           start
