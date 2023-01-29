@@ -1,21 +1,22 @@
 import "./App.css";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { RecoilRoot } from "recoil";
+
 import { LoadingPage } from "common/LoadingPage";
 import { GamePage } from "common/GamePage";
+import { Home } from "common/Home";
 
 function App() {
-  let answer: number[] = [];
-  while (answer.length < 6) {
-    answer.push(Math.floor(Math.random() * 4));
-  }
   return (
     <BrowserRouter>
-      <div>
+      <RecoilRoot>
         <Routes>
-          <Route path="/" element={<LoadingPage arr={answer} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/loading" element={<LoadingPage />} />
           <Route path="/game" element={<GamePage />} />
         </Routes>
-      </div>
+      </RecoilRoot>
     </BrowserRouter>
   );
 }

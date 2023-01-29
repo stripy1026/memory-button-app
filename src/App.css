@@ -37,7 +37,7 @@
   background-color: violet;
 }
 
-.GameButton:active {
+.game-button:active {
   transform: scale(0.95);
   filter: brightness(0);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);

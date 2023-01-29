@@ -1,28 +1,34 @@
 import { useState, Dispatch } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { levelState } from "store/level";
 
-type Props = {
-  arr: number[];
-};
+export const LoadingPage = () => {
+  const level: number = useRecoilValue(levelState);
 
-export const LoadingPage = (props: Props) => {
   const [onActive, setOnActive] = useState<Boolean[]>([
     false,
     false,
     false,
     false,
   ]);
+
   const navigate = useNavigate();
+  const location = useLocation();
+  const props: number[] = location.state.answer;
 
   async function handleClicks(
     prop: number[],
     set: Dispatch<React.SetStateAction<Boolean[]>>
   ) {
-    for (let i = 0; i < prop.length; ++i) {
-      console.log(`loop : ${i}, ${prop}`);
+    for (let i = 0; i < level; ++i) {
       await handleClick(prop, i, set);
     }
-    navigate(`/game`);
+    navigate(`/game`, {
+      state: {
+        answer: props,
+      },
+    });
   }
 
   const handleClick = (
@@ -75,13 +81,15 @@ export const LoadingPage = (props: Props) => {
       <div>
         <button
           className="start"
-          onClick={(e) => {
-            handleClicks(props.arr, setOnActive);
+          onClick={() => {
+            handleClicks(props, setOnActive);
           }}
         >
           start
         </button>
-        <span>answer:{props.arr}</span>
+        <span>
+          answer:{props}, current level:{level}
+        </span>
       </div>
     </>
   );
