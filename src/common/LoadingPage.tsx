@@ -52,32 +52,24 @@ export const LoadingPage = () => {
     });
   };
   return (
-    <>
+    <div className="home">
       <div className="button-group">
         <button
           className={onActive[0] ? "game-button-active" : "game-button"}
           id="one"
-        >
-          1
-        </button>
+        ></button>
         <button
           className={onActive[1] ? "game-button-active" : "game-button"}
           id="two"
-        >
-          2
-        </button>
+        ></button>
         <button
           className={onActive[2] ? "game-button-active" : "game-button"}
           id="three"
-        >
-          3
-        </button>
+        ></button>
         <button
           className={onActive[3] ? "game-button-active" : "game-button"}
           id="four"
-        >
-          4
-        </button>
+        ></button>
       </div>
       <div>
         <button
@@ -88,10 +80,8 @@ export const LoadingPage = () => {
         >
           start
         </button>
-        <span>
-          answer:{props}, current level:{level}
-        </span>
+        <span>current level:{level}</span>
       </div>
-    </>
+    </div>
   );
 };

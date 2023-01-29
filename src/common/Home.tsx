@@ -14,35 +14,48 @@ export const Home = () => {
     });
   };
   return (
-    <div>
-      <button
-        onClick={() => {
-          handleClick(4);
-        }}
-      >
-        EASY
-      </button>
-      <button
-        onClick={() => {
-          handleClick(8);
-        }}
-      >
-        NORMAL
-      </button>
-      <button
-        onClick={() => {
-          handleClick(16);
-        }}
-      >
-        HARD
-      </button>
-      <button
-        onClick={() => {
-          handleClick(32);
-        }}
-      >
-        HELL
-      </button>
+    <div className="home">
+      <div className="title">MEMORY BUTTON GAME</div>
+      <div className="level-display">
+        <p>EASY : ~4 level</p>
+        <p>NORMAL : ~8 level</p>
+        <p> HARD : ~16 level</p>
+        <p>HELL : ~32 level</p>
+      </div>
+      <div className="container">
+        <button
+          className="item"
+          onClick={() => {
+            handleClick(4);
+          }}
+        >
+          EASY
+        </button>
+        <button
+          className="item"
+          onClick={() => {
+            handleClick(8);
+          }}
+        >
+          NORMAL
+        </button>
+        <button
+          className="item"
+          onClick={() => {
+            handleClick(16);
+          }}
+        >
+          HARD
+        </button>
+        <button
+          className="item"
+          onClick={() => {
+            handleClick(32);
+          }}
+        >
+          HELL
+        </button>
+      </div>
     </div>
   );
 };

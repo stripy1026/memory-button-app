@@ -18,7 +18,6 @@ export const GamePage = () => {
       setLevel(1);
       navigate("/", { replace: true });
     } else if (index === level - 1 && key === props[index]) {
-      alert("Successed!");
       setLevel((prev) => prev + 1);
       navigate(`/loading`, {
         replace: true,
@@ -27,7 +26,6 @@ export const GamePage = () => {
         },
       });
     } else if (key !== props[index]) {
-      alert("Failed!");
       setLevel(1);
       navigate("/", { replace: true });
     } else {
@@ -36,7 +34,7 @@ export const GamePage = () => {
   };
 
   return (
-    <>
+    <div className="home">
       <div className="button-group">
         <button
           className="game-button"
@@ -44,42 +42,32 @@ export const GamePage = () => {
           onClick={() => {
             handleClick(0);
           }}
-        >
-          1
-        </button>
+        ></button>
         <button
           className="game-button"
           id="two"
           onClick={() => {
             handleClick(1);
           }}
-        >
-          2
-        </button>
+        ></button>
         <button
           className="game-button"
           id="three"
           onClick={() => {
             handleClick(2);
           }}
-        >
-          3
-        </button>
+        ></button>
         <button
           className="game-button"
           id="four"
           onClick={() => {
             handleClick(3);
           }}
-        >
-          4
-        </button>
+        ></button>
       </div>
       <div>
-        <span>
-          answer:{props}, current level:{level}
-        </span>
+        <span>current level:{level}</span>
       </div>
-    </>
+    </div>
   );
 };
