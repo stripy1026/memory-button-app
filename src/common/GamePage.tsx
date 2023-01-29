@@ -15,11 +15,13 @@ export const GamePage = () => {
   const handleClick = (key: number) => {
     if (index === props.length - 1 && key === props[index]) {
       alert("Game Clear!");
-      navigate("/");
+      setLevel(1);
+      navigate("/", { replace: true });
     } else if (index === level - 1 && key === props[index]) {
       alert("Successed!");
       setLevel((prev) => prev + 1);
       navigate(`/loading`, {
+        replace: true,
         state: {
           answer: props,
         },
@@ -27,7 +29,7 @@ export const GamePage = () => {
     } else if (key !== props[index]) {
       alert("Failed!");
       setLevel(1);
-      navigate("/");
+      navigate("/", { replace: true });
     } else {
       setIndex((prev) => prev + 1);
     }

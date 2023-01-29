@@ -25,6 +25,7 @@ export const LoadingPage = () => {
       await handleClick(prop, i, set);
     }
     navigate(`/game`, {
+      replace: true,
       state: {
         answer: props,
       },
@@ -49,7 +50,7 @@ export const LoadingPage = () => {
         resolve(setOnActive([false, false, false, false]));
       }, 1000);
     });
-  }; // make promise function and then useNavigate
+  };
   return (
     <>
       <div className="button-group">
