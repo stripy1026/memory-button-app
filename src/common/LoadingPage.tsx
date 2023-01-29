@@ -1,4 +1,5 @@
 import { useState, Dispatch } from "react";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   arr: number[];
@@ -11,6 +12,7 @@ export const LoadingPage = (props: Props) => {
     false,
     false,
   ]);
+  const navigate = useNavigate();
 
   async function handleClicks(
     prop: number[],
@@ -20,6 +22,7 @@ export const LoadingPage = (props: Props) => {
       console.log(`loop : ${i}, ${prop}`);
       await handleClick(prop, i, set);
     }
+    navigate(`/game`);
   }
 
   const handleClick = (

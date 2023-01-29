@@ -1,6 +1,7 @@
 import "./App.css";
-import { RecoilRoot } from "recoil";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoadingPage } from "common/LoadingPage";
+import { GamePage } from "common/GamePage";
 
 function App() {
   let answer: number[] = [];
@@ -8,9 +9,14 @@ function App() {
     answer.push(Math.floor(Math.random() * 4));
   }
   return (
-    <RecoilRoot>
-      <LoadingPage arr={answer} />
-    </RecoilRoot>
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/" element={<LoadingPage arr={answer} />} />
+          <Route path="/game" element={<GamePage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
