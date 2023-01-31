@@ -10,22 +10,22 @@ export const GamePage = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const props: number[] = location.state.answer;
+  const answerArray: number[] = location.state.answer;
 
-  const handleClick = (key: number) => {
-    if (index === props.length - 1 && key === props[index]) {
+  const guessAnswer = (key: number) => {
+    if (index === answerArray.length - 1 && key === answerArray[index]) {
       alert("Game Clear!");
       setLevel(1);
       navigate("/", { replace: true });
-    } else if (index === level - 1 && key === props[index]) {
+    } else if (index === level - 1 && key === answerArray[index]) {
       setLevel((prev) => prev + 1);
       navigate(`/loading`, {
         replace: true,
         state: {
-          answer: props,
+          answer: answerArray,
         },
       });
-    } else if (key !== props[index]) {
+    } else if (key !== answerArray[index]) {
       setLevel(1);
       navigate("/", { replace: true });
     } else {
@@ -40,28 +40,28 @@ export const GamePage = () => {
           className="game-button"
           id="one"
           onClick={() => {
-            handleClick(0);
+            guessAnswer(0);
           }}
         ></button>
         <button
           className="game-button"
           id="two"
           onClick={() => {
-            handleClick(1);
+            guessAnswer(1);
           }}
         ></button>
         <button
           className="game-button"
           id="three"
           onClick={() => {
-            handleClick(2);
+            guessAnswer(2);
           }}
         ></button>
         <button
           className="game-button"
           id="four"
           onClick={() => {
-            handleClick(3);
+            guessAnswer(3);
           }}
         ></button>
       </div>

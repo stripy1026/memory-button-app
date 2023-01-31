@@ -4,7 +4,7 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const navigate: NavigateFunction = useNavigate();
-  const handleClick = (key: number) => {
+  const moveToLoadingPage = (key: number) => {
     const answer: number[] = createAnswer(key);
     navigate(`loading`, {
       replace: true,
@@ -26,7 +26,7 @@ export const Home = () => {
         <button
           className="item"
           onClick={() => {
-            handleClick(4);
+            moveToLoadingPage(4);
           }}
         >
           EASY
@@ -34,7 +34,7 @@ export const Home = () => {
         <button
           className="item"
           onClick={() => {
-            handleClick(8);
+            moveToLoadingPage(8);
           }}
         >
           NORMAL
@@ -42,7 +42,7 @@ export const Home = () => {
         <button
           className="item"
           onClick={() => {
-            handleClick(16);
+            moveToLoadingPage(16);
           }}
         >
           HARD
@@ -50,7 +50,7 @@ export const Home = () => {
         <button
           className="item"
           onClick={() => {
-            handleClick(32);
+            moveToLoadingPage(32);
           }}
         >
           HELL

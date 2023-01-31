@@ -15,35 +15,35 @@ export const LoadingPage = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const props: number[] = location.state.answer;
+  const answerArray: number[] = location.state.answer;
 
-  async function handleClicks(
-    prop: number[],
-    set: Dispatch<React.SetStateAction<Boolean[]>>
+  async function previewAnswer(
+    answerArray: number[],
+    setToggle: Dispatch<React.SetStateAction<Boolean[]>>
   ) {
     for (let i = 0; i < level; ++i) {
-      await handleClick(prop, i, set);
+      await toggleButton(answerArray, i, setToggle);
     }
     navigate(`/game`, {
       replace: true,
       state: {
-        answer: props,
+        answer: answerArray,
       },
     });
   }
 
-  const handleClick = (
-    prop: number[],
+  const toggleButton = (
+    answerArray: number[],
     key: number,
-    set: Dispatch<React.SetStateAction<Boolean[]>>
+    setToggle: Dispatch<React.SetStateAction<Boolean[]>>
   ) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        set([
-          true && prop[key] === 0,
-          true && prop[key] === 1,
-          true && prop[key] === 2,
-          true && prop[key] === 3,
+        setToggle([
+          true && answerArray[key] === 0,
+          true && answerArray[key] === 1,
+          true && answerArray[key] === 2,
+          true && answerArray[key] === 3,
         ]);
       }, 500);
       setTimeout(() => {
@@ -75,7 +75,7 @@ export const LoadingPage = () => {
         <button
           className="start"
           onClick={() => {
-            handleClicks(props, setOnActive);
+            previewAnswer(answerArray, setOnActive);
           }}
         >
           start
