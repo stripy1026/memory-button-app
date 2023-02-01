@@ -78,9 +78,10 @@
 }
 
 .title {
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 .level-display {
   font-size: 2rem;
+  display: grid;
 }

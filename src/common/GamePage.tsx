@@ -36,34 +36,14 @@ export const GamePage = () => {
   return (
     <div className="home">
       <div className="button-group">
-        <button
-          className="game-button"
-          id="one"
-          onClick={() => {
-            guessAnswer(0);
-          }}
-        ></button>
-        <button
-          className="game-button"
-          id="two"
-          onClick={() => {
-            guessAnswer(1);
-          }}
-        ></button>
-        <button
-          className="game-button"
-          id="three"
-          onClick={() => {
-            guessAnswer(2);
-          }}
-        ></button>
-        <button
-          className="game-button"
-          id="four"
-          onClick={() => {
-            guessAnswer(3);
-          }}
-        ></button>
+        {[0, 1, 2, 3].map((key) => (
+          <button
+            className="game-button"
+            onClick={() => {
+              guessAnswer(key);
+            }}
+          ></button>
+        ))}
       </div>
       <div>
         <span>current level:{level}</span>
