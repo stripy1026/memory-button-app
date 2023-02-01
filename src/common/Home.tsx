@@ -4,9 +4,9 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const navigate: NavigateFunction = useNavigate();
-  const moveToLoadingPage = (key: number) => {
+  const moveToGamePage = (key: number) => {
     const answer: number[] = createAnswer(key);
-    navigate(`loading`, {
+    navigate(`game`, {
       replace: true,
       state: {
         answer,
@@ -32,8 +32,9 @@ export const Home = () => {
           { key: 4, txt: "HELL" },
         ].map((diff) => (
           <button
+            key={`${diff.key}`}
             onClick={() => {
-              moveToLoadingPage(diff.key * 4);
+              moveToGamePage(diff.key * 4);
             }}
           >
             {diff.txt}
