@@ -1,4 +1,4 @@
-import { useState, Dispatch } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { levelState } from "store/level";
@@ -19,7 +19,7 @@ export const LoadingPage = () => {
 
   async function previewAnswer(
     answerArray: number[],
-    setToggle: Dispatch<React.SetStateAction<Boolean[]>>
+    setToggle: Dispatch<SetStateAction<Boolean[]>>
   ) {
     for (let i = 0; i < level; ++i) {
       await toggleButton(answerArray, i, setToggle);
@@ -35,9 +35,9 @@ export const LoadingPage = () => {
   const toggleButton = (
     answerArray: number[],
     key: number,
-    setToggle: Dispatch<React.SetStateAction<Boolean[]>>
-  ) => {
-    return new Promise((resolve) => {
+    setToggle: Dispatch<SetStateAction<Boolean[]>>
+  ) =>
+    new Promise((resolve) => {
       setTimeout(() => {
         setToggle([
           true && answerArray[key] === 0,
@@ -50,26 +50,12 @@ export const LoadingPage = () => {
         resolve(setOnActive([false, false, false, false]));
       }, 1000);
     });
-  };
   return (
     <div className="home">
       <div className="button-group">
-        <button
-          className={onActive[0] ? "game-button-active" : "game-button"}
-          id="one"
-        ></button>
-        <button
-          className={onActive[1] ? "game-button-active" : "game-button"}
-          id="two"
-        ></button>
-        <button
-          className={onActive[2] ? "game-button-active" : "game-button"}
-          id="three"
-        ></button>
-        <button
-          className={onActive[3] ? "game-button-active" : "game-button"}
-          id="four"
-        ></button>
+        {onActive.map((v: Boolean) => (
+          <button className={`game-button${v ? "-active" : ""}`}></button>
+        ))}
       </div>
       <div>
         <button

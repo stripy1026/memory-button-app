@@ -21,19 +21,19 @@
   grid-template-rows: 21rem 21rem;
 }
 
-#one {
+.button-group > button:nth-child(1) {
   background-color: red;
 }
 
-#two {
+.button-group > button:nth-child(2) {
   background-color: blue;
 }
 
-#three {
+.button-group > button:nth-child(3) {
   background-color: greenyellow;
 }
 
-#four {
+.button-group > button:nth-child(4) {
   background-color: violet;
 }
 
