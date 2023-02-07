@@ -1,6 +1,8 @@
-import React from "react";
+/** @jsxImportSource @emotion/react */
+
 import createAnswer from "util/createAnswer";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import * as style from "style/HomeStyle";
 
 export const Home = () => {
   const navigate: NavigateFunction = useNavigate();
@@ -14,11 +16,41 @@ export const Home = () => {
     });
   };
   return (
-    <div className="home">
-      <header className="title">
+    <div css={style.homeStyle}>
+      <header css={style.homeTitleStyle}>
         <h1>MEMORY BUTTON GAME</h1>
       </header>
-      <div className="level-display">
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <p>tmp</p>
+      <div css={style.homeTextStyle}>
         <span>EASY : ~4 level</span>
         <span>NORMAL : ~8 level</span>
         <span> HARD : ~16 level</span>
@@ -32,6 +64,7 @@ export const Home = () => {
           { key: 4, txt: "HELL" },
         ].map((diff) => (
           <button
+            css={style.diffButtonStyle}
             key={`${diff.key}`}
             onClick={() => {
               moveToGamePage(diff.key * 4);

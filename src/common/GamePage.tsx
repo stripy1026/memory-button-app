@@ -11,11 +11,10 @@ export const GamePage = () => {
   if (location.state === null) {
     return <header>PAGE ERROR !!</header>;
   }
-  
+
   const answerArray: number[] = location.state.answer;
   return (
     <div>
-      <header>Game Page</header>
       {isLoading ? (
         <LoadingBox arr={answerArray} />
       ) : (
